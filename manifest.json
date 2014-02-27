@@ -1,0 +1,17 @@
+{
+    "manifest_version" : 2,
+    "name" : "Encompass Search",
+    "version" : "0.1.0",
+    "description" : "Search Trexler Library's catalog and more",
+    "icons" : {
+        "19" : "icon_19.png",
+        "64" : "icon_64.png",
+        "128" : "icon_128.png"
+    },
+    "background" : {},
+    "browser_action" : {
+        "default_title" : "",
+        "default_icon" : "icon_19.png",
+        "default_popup" : "popup.html"
+    }
+}
