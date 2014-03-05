@@ -3,9 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <style>
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+
     body {
-        font-size: 14px;
+        font-family: "Helvetica", "Arial", sans-serif;
+        font-size: 12px;
         width: 35em;
+    }
+
+    a {
+        color: #cc092f;
+        text-decoration: none;
+    }
+
+    a:hover {
+        border-bottom: 1px solid #cc092f;
+    }
+
+    .searchbox {
+        height: 2em;
     }
 
     #search {
@@ -22,17 +40,54 @@
         outline: none;
     }
 
+    #butt {
+        margin: 0;
+    }
+
+    .helpbox p {
+        color: #888;
+        display: inline-block;
+        font-size: 1em;
+        font-style: italic;
+        line-height: 1.35em;
+    }
+
+    footer {
+        color: #666;
+        font-size: .85em;
+        text-align: center;
+        width: 100%;
+    }
+
+    footer a {
+        color: orange;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        border-bottom: 1px solid orange;
+    }
+
+    .red {
+        color: #cc092f;
+        font-weight: 700;
+    }
+
     </style>
 </head>
 <body>
 <div class="searchbox">
-    <input type="text" id="search">
+    <input type="text" id="search" placeholder="find books, articles, videos, and more">
     <button id="butt">search</button>
 </div>
 
 <div class="helpbox">
-    <p>use Encompass Search to find books, articles, and more </p>
+    <p><strong>Encompass Search</strong> (from <a href="http://trexler.muhlenberg.edu/" target="_blank">Trexler Library</a>) helps you find resources from many catalogs and databases quickly and easily, all from a single search box. <a href="http://trexler.muhlenberg.edu/research/what-is-encompass.html" target="_blank">Learn more.</a></p>
 </div>
+
+<footer>
+made with <span class="red" alt="luv">&lt;3</span> by <a href="http://github.com/malantonio" target="_blank">@malantonio</a> | 2014
+</footer>
 
 
 <script src="popup.js"></script>
