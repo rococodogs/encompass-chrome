@@ -1,5 +1,13 @@
 chrome.tabs.query({ active: true }, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, { type: 'getSelection' }, function(response) {
+    var tab;
+
+    for ( var i = 0; i < tabs.length; i++ ) {
+        if ( tabs[i].url ) { tab = tabs[i]; }
+    }
+
+    if ( !tab ) { return; }
+
+    chrome.tabs.sendMessage(tab.id, { type: 'getSelection' }, function(response) {
         if ( response && response.type === 'selection' ) {  
             document.getElementById('search').value = response.message;
         }
