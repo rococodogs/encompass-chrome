@@ -1,3 +1,5 @@
+document.getElementById('search').focus();
+
 chrome.tabs.query({ active: true }, function(tabs) {
     var tab;
 
