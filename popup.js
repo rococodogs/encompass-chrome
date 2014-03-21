@@ -1,11 +1,9 @@
+// focus the input of the popup
 document.getElementById('search').focus();
 
-chrome.tabs.query({ active: true }, function(tabs) {
-    var tab;
-
-    for ( var i = 0; i < tabs.length; i++ ) {
-        if ( tabs[i].url ) { tab = tabs[i]; }
-    }
+// find the opened tab and send a message to get selected text
+chrome.tabs.query({ active: true, lastFocusedWindow: true }, function(tabs) {
+    var tab = tabs[0];
 
     if ( !tab ) { return; }
 
@@ -16,23 +14,23 @@ chrome.tabs.query({ active: true }, function(tabs) {
     })
 })
 
+// submit our popup form by clicking the button...
 document.getElementById('butt').onclick = function (e) {
     e.preventDefault();
-    console.log('clickd')
     search(document.getElementById('search').value);
 }
 
+// ...or hitting enter
 window.addEventListener("keydown", function(e) {
     if ( e.keyCode === 13 ) {
         search(document.getElementById('search').value);
     }
 })
 
+// our 'sendMessage' function
 function search(terms) {
-    terms = terms.trim();
-
-    if ( terms.length > 0 ) {
-        var uri = 'http://muhlenberg.worldcat.org/search?qt=wc_org_muhlenberg&ai=wclocal_muhlenberg&q='
-        chrome.tabs.create({ url: uri + encodeURI(terms) });
-    }
+    chrome.runtime.sendMessage({
+        type: "search",
+        message: terms
+    });
 }
