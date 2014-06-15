@@ -1,7 +1,7 @@
 {
     "manifest_version" : 2,
     "name" : "Encompass Search",
-    "version" : "0.3.0",
+    "version" : "0.3.1",
     "description" : "Search Trexler Library's catalog and more",
     
     "permissions" : [ "activeTab", "contextMenus" ],
